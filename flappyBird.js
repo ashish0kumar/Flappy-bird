@@ -216,9 +216,9 @@ let topPipeImg;
 let bottomPipeImg;
 
 //* physics
-let velocityX = -1.5; //* pipes moving left speed
+let velocityX = isMobile() ? -3 : -1.5; //* pipes moving left speed
 let velocityY = 0; //* bird jump speed
-let gravity = 0.25;
+let gravity = isMobile() ? 0.3 : 0.25;
 
 let gameOver = false;
 let score = 0;
@@ -247,7 +247,7 @@ window.onload = function () {
     bottomPipeImg.src = "./bottompipe.png";
 
     requestAnimationFrame(update);
-    let interval = isMobile() ? 1500 : 1000; //* every 1.5 seconds for mobile, every 1 second for others
+    let interval = isMobile() ? 2500 : 1000; //* every 1.5 seconds for mobile, every 1 second for others
     setInterval(placePipes, interval);
 
     document.addEventListener("keydown", moveBird);
@@ -310,7 +310,7 @@ function placePipes() {
     }
 
     let randomPipeY = pipeY - pipeHeight / 4 - Math.random() * (pipeHeight / 2);
-    let openingSpace = isMobile() ? boardHeight / 3.5 : boardHeight / 4.5; //* increased opening space for mobile
+    let openingSpace = boardHeight / 4.5; //* increased opening space for mobile
 
     let topPipe = {
         img: topPipeImg,
