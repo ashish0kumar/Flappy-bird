@@ -71,6 +71,9 @@ window.onload = function () {
     setInterval(placePipes, 1000); //* every 1 seconds
 
     document.addEventListener("keydown", moveBird);
+
+    //* add touch event listener for mobile devices
+    document.addEventListener("touchstart", moveBird);
 }
 
 
@@ -157,7 +160,7 @@ function placePipes() {
 
 
 function moveBird(e) {
-    if (e.code == "Space" || e.code == "ArrowUp" || e.code == "KeyX") {
+    if (e.code == "Space" || e.code == "ArrowUp" || e.code == "KeyX" || e.type === "touchstart") {
         //* jump
         velocityY = -6;
 
