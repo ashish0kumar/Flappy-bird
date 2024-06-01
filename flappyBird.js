@@ -71,7 +71,7 @@ window.onload = function () {
     setInterval(placePipes, 1000); //* every 1 seconds
 
     document.addEventListener("keydown", moveBird);
-    document.addEventListener("touchtstart", moveBird);
+    document.addEventListener("touchtstart", moveBirdMobile);
 }
 
 
@@ -109,7 +109,7 @@ function update() {
     }
 
     //* clear pipes
-    while (pipeArray.length > 0 && pipeArray[0].x < 1-pipWidth) {
+    while (pipeArray.length > 0 && pipeArray[0].x < 1 - pipWidth) {
         pipeArray.shift(); //* removes first element from the array
     }
 
@@ -169,6 +169,19 @@ function moveBird(e) {
             score = 0;
             gameOver = false;
         }
+    }
+}
+
+function moveBirdMobile(e) {
+    //* jump
+    velocityY = -6;
+
+    //* reset game 
+    if (gameOver) {
+        bird.y = birdY;
+        pipeArray = [];
+        score = 0;
+        gameOver = false;
     }
 }
 
