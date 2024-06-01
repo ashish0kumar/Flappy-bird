@@ -247,7 +247,7 @@ window.onload = function () {
     bottomPipeImg.src = "./bottompipe.png";
 
     requestAnimationFrame(update);
-    let interval = isMobile() ? 3000 : 1000; //* every 1.5 seconds for mobile, every 1 second for others
+    let interval = isMobile() ? 1500 : 1000; //* every 1.5 seconds for mobile, every 1 second for others
     setInterval(placePipes, interval);
 
     document.addEventListener("keydown", moveBird);
