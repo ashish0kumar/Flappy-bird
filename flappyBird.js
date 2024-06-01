@@ -247,7 +247,7 @@ window.onload = function () {
     bottomPipeImg.src = "./bottompipe.png";
 
     requestAnimationFrame(update);
-    let interval = isMobile() ? 1300 : 1000; //* every 1.5 seconds for mobile, every 1 second for others
+    let interval = 1000; //* every 1 second
     setInterval(placePipes, interval);
 
     document.addEventListener("keydown", moveBird);
@@ -339,7 +339,7 @@ function moveBird(e) {
     //* Check for both keyboard and touch events
     if (e.code == "Space" || e.code == "ArrowUp" || e.code == "KeyX" || e.type === "touchstart") {
         //* jump
-        velocityY = -6;
+        velocityY = isMobile() ? -8 : -6;
 
         //* reset game 
         if (gameOver) {
